@@ -44,6 +44,7 @@ table, th, td {
   border-radius: 20px;
   border: 3px solid #fefffe;
   color: white;
-  font-size: medium;
+  font-size: 20px;
   font-weight: 700;
+  margin-left: 5px ;
 }

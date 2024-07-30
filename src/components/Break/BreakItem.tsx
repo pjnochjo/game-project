@@ -24,7 +24,6 @@ export const BreakItem: React.FC<BreakItemProps> = ({
     const handleOnBreak = async (item: BreakModel) => {
         setCount(pre => pre = pre + 1);
         setIsHidden(true);
-        await sleep(200);
         setImg(jamBreak);
         await sleep(500);
         setImg(breakModel.src);
@@ -35,7 +34,7 @@ export const BreakItem: React.FC<BreakItemProps> = ({
             if (count < time && hidden == false) {
                 handleOnBreak(breakModel)
             }
-        }} style={{ width: "8vw", height: "10vh" }} className={`${img !== breakModel.src ? "btn-game":""} `} />
+        }} style={{ width: "25%", height: "10vh" }} className={`${img !== breakModel.src ? "btn-game":""} `} />
     </>
 
 }

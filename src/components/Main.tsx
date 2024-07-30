@@ -20,21 +20,22 @@ export const Main: React.FC<MainProps> = ({
         margin: "0 auto",
         display: "flex",
         justifyContent: "center",
-        alignItems: "flex-end"
+        alignItems: "flex-end",
+        backgroundColor: "green"
     }}>
             <img className="btn-game"
                 style={{
-                    width: "15vh",
-                    marginRight: "10vh",
-                    marginBottom: "5vh",
+                    width: "40%",
+                    marginRight: "5vh",
+                    marginBottom: "11vh",
                 }}
                 onClick={() => { setAction(ACTION_BREAK) }}
                 src={btnBreak}
             />
             <img className="btn-game"
                 style={{
-                    width: "15vh",
-                    marginBottom: "5vh",
+                    width: "40%",
+                    marginBottom: "11vh",
 
                 }}
                 onClick={() => { setAction(ACTION_BRICK) }}

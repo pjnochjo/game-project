@@ -10,6 +10,9 @@ import manh6 from "../../asset/game-xep-hinh/part6.png";
 import logo from "../../asset/logo.jpg";
 import { BrickItem } from "./BrickItem";
 import Puzzle from "./Puzzle";
+import {
+    ReloadOutlined,
+  } from '@ant-design/icons';
 interface BrickLayoutProps {
     setAction: Dispatch<SetStateAction<string>>;
 }
@@ -36,26 +39,31 @@ export const BrickLayout: React.FC<BrickLayoutProps> = ({
             flexDirection: "column",
             justifyContent: "center",
             position: "relative",
-            overflow: "hidden"
+            overflow: "hidden",
+            backgroundColor:"green"
         }}>
-            <div style={{ position: "absolute", top: 10, right: 10 }}>
+            <div style={{ position: "absolute", top: window.screen.availHeight/50, right: 10 }}>
+                <ReloadOutlined onClick={()=>{
+                    setFormPic([manh4, manh1, manh5, manh3, manh2, manh6]);
+                    setToPic(["", "", "", "", "", ""])
+                }} className="btn-action-back"/>
                 <button onClick={() => { setAction("") }} style={{
                 }} className="btn-action-back">Quay Lai</button>
             </div>
 
             <div style={{
-                margin: "0 auto  5vh auto",
+                margin: "-5vh auto  10vh auto",
                 width: "85%",
-                height: "180px",
+                height: "250px",
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: "contain",
                 backgroundImage: `url(${LabelBrick})`,
                 backgroundPosition: "center center",
-                // visibility: "visible",
-                // animationDuration: "2s",
-                // animationDelay: "300ms",
-                // animationIterationCount: "infinite",
-                // animationName: "tada",
+                visibility: "visible",
+                animationDuration: "2s",
+                animationDelay: "300ms",
+                animationIterationCount: "infinite",
+                animationName: "tada",
             }}>
             </div>
             <div style={{ display: 'flex', margin: "0 auto", }}>
@@ -79,10 +87,18 @@ export const BrickLayout: React.FC<BrickLayoutProps> = ({
                         && toPic[4] === manh5
                         && toPic[5] === manh6
                         ?
-                        <div style={{ margin: "0 auto" }}>
-                            <img src={logo} style={{ width: "16vw", height: "16vh", pointerEvents: "none" }} />
+                        <div style={{
+                            margin: "0 auto",
+                            visibility: "visible",
+                            animationDuration: "2s",
+                            animationDelay: "300ms",
+                            animationIterationCount: "1",
+                            animationName: "jackInTheBox"
+                        }}
+                        >
+                            <img src={logo} style={{ width: "28vh", height: "22vh", pointerEvents: "none" }} />
                         </div>
-                        : <table style={{ margin: "0 auto", borderSpacing: 0 }} >
+                        : <table style={{ margin: "30px auto 0 auto", borderSpacing: 0 }} >
                             <tr>
                                 <td>
                                     {

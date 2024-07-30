@@ -13,7 +13,9 @@ import qua4 from "../../asset/price/nhan.png";
 import qua5 from "../../asset/price/ro.png";
 import qua6 from "../../asset/price/tui.png";
 import WeightedRandom from "../function/WeightedRandom";
-
+import {
+    ReloadOutlined,
+} from '@ant-design/icons';
 
 interface BreakLayoutProps {
     time: number;
@@ -25,6 +27,7 @@ export const BreakLayout: React.FC<BreakLayoutProps> = ({
 }) => {
     const [count, setCount] = useState<number>(0);
     const [items, setItems] = useState<BreakModel[]>();
+    const [reload, setReload] = useState<boolean>(false);
     useEffect(() => {
         const initial = async () => {
             const listProduct: Product[] = await GetConfigure();
@@ -54,9 +57,10 @@ export const BreakLayout: React.FC<BreakLayoutProps> = ({
                 } as BreakModel
             })
             setItems(listItem);
+            setCount(0);
         };
         initial();
-    }, [])
+    }, [reload])
 
     return <>
         <div style={{
@@ -70,6 +74,7 @@ export const BreakLayout: React.FC<BreakLayoutProps> = ({
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
+            backgroundColor: "green"
         }}>
 
             <div style={{
@@ -87,9 +92,13 @@ export const BreakLayout: React.FC<BreakLayoutProps> = ({
                 animationName: "tada",
             }}>
             </div>
-            <div style={{ position: "absolute", top: 10, right: 10 }}>
+            <div style={{ position: "absolute", top: window.screen.availHeight / 50, right: 10 }}>
+                <ReloadOutlined onClick={() => {
+                    setItems(undefined);
+                    setReload(pre => !pre);
+                }} className="btn-action-back" />
                 <button onClick={() => { setAction("") }} style={{
-                }} className="btn-action-back">Quay Lai</button>
+                }} className="btn-action-back">Quay Lại</button>
             </div>
             <div style={{
                 display: 'flex',

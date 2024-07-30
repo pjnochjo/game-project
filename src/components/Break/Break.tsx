@@ -19,7 +19,7 @@ export const Break: React.FC<BreakProps> = ({
 }) => {
     return <>
         <div style={{
-            width: "35%",
+            width: "80%",
             margin: "0 auto",
             display: "flex",
             flexDirection: 'row',
@@ -28,7 +28,7 @@ export const Break: React.FC<BreakProps> = ({
             {breakModels.map(s => <BreakItem breakModel={s} setCount={setCount} count={count} time={time} />)}
         </div>
         <image style={{
-            width: "35%",
+            width: "80%",
             height: "5vh",
             backgroundRepeat: 'no-repeat',
             backgroundSize: "contain",
