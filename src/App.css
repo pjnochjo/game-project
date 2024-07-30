@@ -1,0 +1,49 @@
+.App {
+  font-family: "TypoPRO Comic Neue", Comic Sans MS, "Comic Sans MS", Arial, sans-serif;
+  font-size: 18px !important;
+  line-height: 24px;
+  color: #231f20;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.btn-game {
+  cursor: pointer;
+  animation-delay: 300ms;
+  animation: pulse 1.5s infinite;
+}
+
+.outer {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  border: 1px solid blue;
+  display: flex;
+  flex: 1;
+}
+
+.item {
+  background-color: orange;
+  border: 1px solid red;
+  flex: 1;
+  /* added */
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.btn-action-back{
+  padding: 10px 20px;
+  background-color: #51a531;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 3px solid #fefffe;
+  color: white;
+  font-size: medium;
+  font-weight: 700;
+}
