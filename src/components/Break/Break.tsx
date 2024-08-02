@@ -6,16 +6,12 @@ import BreakItem from "./BreakItem";
 
 
 interface BreakProps {
-    time: number;
     breakModels: BreakModel[];
-    count: number
-    setCount: Dispatch<SetStateAction<number>>;
+    setSelectedJam: Dispatch<SetStateAction<BreakModel | undefined>>;
 }
 export const Break: React.FC<BreakProps> = ({
-    time,
     breakModels,
-    count,
-    setCount
+    setSelectedJam
 }) => {
     return <>
         <div style={{
@@ -25,7 +21,7 @@ export const Break: React.FC<BreakProps> = ({
             flexDirection: 'row',
             justifyContent: "space-between",
         }}>
-            {breakModels.map(s => <BreakItem breakModel={s} setCount={setCount} count={count} time={time} />)}
+            {breakModels.map(s => <BreakItem setSelectedJam={setSelectedJam} breakModel={s}/>)}
         </div>
         <image style={{
             width: "80%",
@@ -36,8 +32,6 @@ export const Break: React.FC<BreakProps> = ({
             backgroundPosition: "center center",
             marginTop:"-1vh",
             marginBottom:"3vh"
-        }} onClick={()=>{
-
         }} />
     </>
 }

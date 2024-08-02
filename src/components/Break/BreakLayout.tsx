@@ -13,21 +13,37 @@ import qua4 from "../../asset/price/nhan.png";
 import qua5 from "../../asset/price/ro.png";
 import qua6 from "../../asset/price/tui.png";
 import WeightedRandom from "../function/WeightedRandom";
+import jam from "../../asset/game-dap-hu/1.png";
+import jamBreak from "../../asset/game-dap-hu/2.png";
 import {
     ReloadOutlined,
 } from '@ant-design/icons';
 
 interface BreakLayoutProps {
-    time: number;
     setAction: Dispatch<SetStateAction<string>>;
 }
 export const BreakLayout: React.FC<BreakLayoutProps> = ({
-    time,
     setAction
 }) => {
-    const [count, setCount] = useState<number>(0);
     const [items, setItems] = useState<BreakModel[]>();
+    const [selectedJam, setSelectedJam] = useState<BreakModel>();
     const [reload, setReload] = useState<boolean>(false);
+    const [img, setImg] = useState<any>(jam);
+    function sleep(ms: any) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    useEffect(() => {
+        if (selectedJam) {
+            const run = async () => {
+                await sleep(1000);
+                setImg(jamBreak);
+                await sleep(1000);
+                setImg(selectedJam.src);
+            }
+            run();
+        }
+    }, [selectedJam])
     useEffect(() => {
         const initial = async () => {
             const listProduct: Product[] = await GetConfigure();
@@ -57,12 +73,12 @@ export const BreakLayout: React.FC<BreakLayoutProps> = ({
                 } as BreakModel
             })
             setItems(listItem);
-            setCount(0);
         };
         initial();
     }, [reload])
 
     return <>
+
         <div style={{
             backgroundRepeat: 'no-repeat',
             backgroundSize: "contain",
@@ -85,19 +101,25 @@ export const BreakLayout: React.FC<BreakLayoutProps> = ({
                 backgroundSize: "contain",
                 backgroundImage: `url(${LabelBreak})`,
                 backgroundPosition: "center center",
-                visibility: "visible",
-                animationDuration: "2s",
-                animationDelay: "300ms",
-                animationIterationCount: "infinite",
-                animationName: "tada",
-            }}>
+                // visibility: "visible",
+                // animationDuration: "2s",
+                // animationDelay: "300ms",
+                // animationIterationCount: "infinite",
+                // animationName: "tada",
+            }} className={!selectedJam ? "action-break" : undefined}>
             </div>
             <div style={{ position: "absolute", top: window.screen.availHeight / 50, right: 10 }}>
                 <ReloadOutlined onClick={() => {
                     setItems(undefined);
+                    setSelectedJam(undefined)
+                    setImg(jam);
                     setReload(pre => !pre);
                 }} className="btn-action-back" />
-                <button onClick={() => { setAction("") }} style={{
+                <button onClick={() => {
+                    setAction("");
+                    setSelectedJam(undefined);
+                    setImg(jam);
+                }} style={{
                 }} className="btn-action-back">Quay Lại</button>
             </div>
             <div style={{
@@ -109,12 +131,28 @@ export const BreakLayout: React.FC<BreakLayoutProps> = ({
                 alignItems: "center",
                 justifyContent: "center"
             }}>
-                {items && <>
-                    <Break time={3} count={count} setCount={setCount} breakModels={items.slice(0, 3)} />
-                    <Break time={3} count={count} setCount={setCount} breakModels={items.slice(3, 6)} />
-                    <Break time={3} count={count} setCount={setCount} breakModels={items.slice(6, 9)} />
-                </>}
-
+                {
+                    selectedJam && <img style={{
+                        width: "75%",
+                        height: "30vh",
+                        visibility: "visible",
+                        animationDuration: "2s",
+                        animationDelay: "300ms",
+                        animationIterationCount: "infinite",
+                        animationName: "tada",
+                    }} src={img} />
+                }
+                {
+                    !selectedJam && <>
+                        {
+                            items && <>
+                                <Break setSelectedJam={setSelectedJam} breakModels={items.slice(0, 3)} />
+                                <Break setSelectedJam={setSelectedJam} breakModels={items.slice(3, 6)} />
+                                <Break setSelectedJam={setSelectedJam} breakModels={items.slice(6, 9)} />
+                            </>
+                        }
+                    </>
+                }
             </div>
         </div>
     </>

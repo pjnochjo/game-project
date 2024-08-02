@@ -15,7 +15,11 @@
   animation-delay: 300ms;
   animation: pulse 1.5s infinite;
 }
-
+.action-break {
+  cursor: pointer;
+  animation-delay: 300ms;
+  animation: tada 2s infinite;
+}
 .outer {
   display: flex;
   flex-direction: column;

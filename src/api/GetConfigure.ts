@@ -1,18 +1,18 @@
-import { API_URL } from "../const/api.constant"
+// import { API_URL } from "../const/api.constant"
 import { Product } from "../model/product";
 
 
 
 export const GetConfigure = async () => {
     return DUMMY_DATA;
-    const request = await fetch(`${API_URL}`, {
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-        method: "GET"
-    })
-    const response: Product[] = await request.json();
+    // const request = await fetch(`${API_URL}`, {
+    //     headers: {
+    //         Accept: "application/json",
+    //         "Content-Type": "application/json",
+    //     },
+    //     method: "GET"
+    // })
+    // const response: Product[] = await request.json();
 }
 
 export const DUMMY_DATA: Product[] = [

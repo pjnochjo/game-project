@@ -8,17 +8,17 @@ import Login from "./Login";
 export const Layout: React.FC = () => {
 
   const [action, setAction] = useState<string>("");
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+
   return <>
     <Routes>
       <Route path="/" element={<>
-        {action === "" && <Main setAction={setAction} />}
-        {action === ACTION_BREAK && <BreakLayout setAction={setAction} time={3} />}
+        {action === "" && <Main isPlaying={isPlaying} setIsPlaying={setIsPlaying}  setAction={setAction} />}
+        {action === ACTION_BREAK && <BreakLayout setAction={setAction} />}
         {action === ACTION_BRICK && <BrickLayout setAction={setAction} />}
       </>} />
       <Route path="/login" element={<Login/>} />
     </Routes>
-
-
   </>
 
 }
