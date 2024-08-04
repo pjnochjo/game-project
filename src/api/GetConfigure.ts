@@ -24,22 +24,22 @@ export const DUMMY_DATA: Product[] = [
     {
         id: "qua2",
         name: "li",
-        weight: 200,
+        weight: 100,
     },
     {
         id: "qua3",
         name: "vourcer",
-        weight: 100,
+        weight: 5,
     },
     {
         id: "qua4",
         name: "nhan",
-        weight: 0,
+        weight: 100000,
     },
     {
         id: "qua5",
         name: "ro",
-        weight: 200,
+        weight: 100,
     },
     {
         id: "qua6",
