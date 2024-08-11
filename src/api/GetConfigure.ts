@@ -19,17 +19,17 @@ export const DUMMY_DATA: Product[] = [
     {
         id: "qua1",
         name: "hop_tra",
-        weight: 1000,
+        weight: 60,
     },
     {
         id: "qua2",
         name: "li",
-        weight: 100,
+        weight: 25,
     },
     {
         id: "qua3",
         name: "vourcer",
-        weight: 5,
+        weight: 0,
     },
     {
         id: "qua4",
@@ -39,11 +39,11 @@ export const DUMMY_DATA: Product[] = [
     {
         id: "qua5",
         name: "ro",
-        weight: 100,
+        weight: 16,
     },
     {
         id: "qua6",
         name: "tui",
-        weight: 100,
+        weight: 16,
     },
 ];

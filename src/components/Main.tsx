@@ -40,7 +40,7 @@ export const Main: React.FC<MainProps> = ({
                 onClick={() => { 
                     setAction(ACTION_BREAK) 
                     if(isPlaying ){
-                        // audio.play();
+                        audio.play();
                         setIsPlaying(false);
                     }
                 }}
@@ -56,7 +56,7 @@ export const Main: React.FC<MainProps> = ({
                 onClick={() => { 
                     setAction(ACTION_BRICK)
                     if(isPlaying ){
-                        // audio.play();
+                        audio.play();
                         setIsPlaying(false);
                     }
                 }}
